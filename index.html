@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KRMAGS | Home </title>
     <link rel="stylesheet" href="style.css">
+    <style>
+    nav {
+        background-color: #333;
+        padding: 10px;
+        position: relative;
+    }
+
+    .menu-icon {
+        font-size: 28px;
+        cursor: pointer;
+        color: white;
+        padding: 10px;
+        float: right;
+    }
+
+    .menu-links {
+        display: none;
+        background-color: #333;
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        border-radius: 5px;
+    }
+
+    .menu-links a {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .menu-links a:hover {
+        background-color: #444;
+    }
+</style>
 </head>
 <body>
+    <nav>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu-links" id="menuLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
     <header>
         <h1 style="text-align: center;">KRMAGS <br>SOLUTION PRIVATE LIMITED</h1>
     </header>
@@ -85,7 +128,17 @@
     <a href="#">Refund policy</a>
     <a href="#">&copy;06 november 2020 |krmags_solutions_pvt_ltd</a>
 </footer>
-
+    
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("menuLinks");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+</script>
 
 </body>
 </html>
