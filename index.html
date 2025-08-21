@@ -98,6 +98,7 @@ ul li a {
            <iframe width="33%" height="150" src="https://www.youtube.com/embed/yR_ExodeNKM?si=nVhFjd3Mi7JWHQA_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen width="33%"></iframe>
            <iframe width="33%" height="150" src="https://www.youtube.com/embed/fRdDYJFYhMQ?si=pZeeIMwUYtLJbR-O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </section>
+        <!--
         <section>
             <h2>   <mark> Wire samples </mark></h2>
             
@@ -112,6 +113,134 @@ ul li a {
             <img src="wire9.jpeg" alt="KRMAGS 10MM" width="20%">
             
         </section>
+        -->
+        <section>
+  <h2><mark> Wire Samples </mark></h2>
+
+  <div class="grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="product/wire1.jpg" alt="Wire">
+      <div class="slide-text" id="wire1-text" onclick="goToPage(1)">4mm</div>
+      <div class="btns">
+        <button onclick="prev(1)">Prev</button>
+        <button onclick="next(1)">Next</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <img src="product/wire2.jpg" alt="Wire">
+      <div class="slide-text" id="wire2-text" onclick="goToPage(2)">6mm</div>
+      <div class="btns">
+        <button onclick="prev(2)">Prev</button>
+        <button onclick="next(2)">Next</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <img src="product/wire3.jpg" alt="Wire">
+      <div class="slide-text" id="wire3-text" onclick="goToPage(3)">10/02</div>
+      <div class="btns">
+        <button onclick="prev(3)">Prev</button>
+        <button onclick="next(3)">Next</button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <img src="product/wire4.jpg" alt="Wire">
+      <div class="slide-text" id="wire4-text" onclick="goToPage(4)">Other</div>
+      <div class="btns">
+        <button onclick="prev(4)">Prev</button>
+        <button onclick="next(4)">Next</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const wires = {
+    1: ["4mm", "6mm", "10/02"],
+    2: ["4mm", "6mm", "10/02"],
+    3: ["4mm", "6mm", "10/02"],
+    4: ["4mm", "6mm", "10/02"]
+  };
+
+  const index = {1:0, 2:0, 3:0, 4:0};
+
+  function next(id) {
+    index[id] = (index[id] + 1) % wires[id].length;
+    document.getElementById(`wire${id}-text`).innerText = wires[id][index[id]];
+  }
+
+  function prev(id) {
+    index[id] = (index[id] - 1 + wires[id].length) % wires[id].length;
+    document.getElementById(`wire${id}-text`).innerText = wires[id][index[id]];
+  }
+
+  // Open detail page when text clicked
+  function goToPage(id) {
+    const wireName = wires[id][index[id]];
+    const fileName = wireName.replace("/", "-") + ".html"; // e.g. 10/02 -> 10-02.html
+    window.location.href = fileName;
+  }
+</script>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .slide-text {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .btns {
+    margin-top: 10px;
+  }
+
+  .btns button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    margin: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btns button:hover {
+    background: #0056b3;
+  }
+</style>
+        
         <section>
             <h1 style="background-color: red;"> our Originator</h1>
             <br>
